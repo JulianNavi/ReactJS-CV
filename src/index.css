@@ -16,5 +16,12 @@ code {
 body {
   font-family: 'Courier New', Courier, monospace;
   background: linear-gradient(rgb(93, 211, 158), rgb(47, 102, 144)) no-repeat;
-  height: 100vh;
+}
+h1,
+h3 {
+  font-weight: 700;
+}
+p,
+h3 {
+  line-height: 20px;
 }

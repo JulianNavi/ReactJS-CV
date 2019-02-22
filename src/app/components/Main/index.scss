@@ -1,0 +1,65 @@
+main {
+  .Section {
+    display: flex;
+    min-height: 100px;
+    padding: 20px 0;
+
+    &--left {
+      flex: 1;
+      padding: 0 30px;
+      position: relative;
+
+      h3 {
+        text-align: right;
+        font-style: italic;
+      }
+
+      &:after {
+        content: '';
+        height: 100px;
+        width: 1px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #989595;
+      }
+    }
+
+    &--right {
+      flex: 6;
+      padding: 0 30px;
+
+      &-job-title {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          font-size: 14px;
+          color: #989595;
+          opacity: 0.75;
+          font-style: italic;
+          padding-left: 25px;
+          line-height: 20px;
+        }
+      }
+
+      div {
+        padding-bottom: 15px;
+        ul {
+          list-style: disc inside;
+          padding-top: 10px;
+        }
+
+        &:nth-last-child(1) {
+          padding-bottom: 0;
+        }
+      }
+
+      p {
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

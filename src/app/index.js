@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';

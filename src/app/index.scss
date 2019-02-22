@@ -106,8 +106,15 @@ main {
 .Footer {
   display: flex;
   justify-content: center;
-  background: #989595;
+  background: #7a031e;
   svg {
     padding: 10px;
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: rgb(47, 102, 144);
+    }
   }
 }

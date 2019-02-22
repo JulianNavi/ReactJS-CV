@@ -1,18 +1,17 @@
 import React from 'react';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import Header from './components/Header';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import { Header, Main, Footer } from './components';
 
 import './index.scss';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main />
+    <React.Fragment>
+      <div className="App">
+        <Header />
+        <Main />
+      </div>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 

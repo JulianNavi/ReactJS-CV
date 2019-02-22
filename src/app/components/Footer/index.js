@@ -1,25 +1,16 @@
 import React from 'react';
+import data from './data';
+
+import IconLink from './IconLink';
+
 import './index.scss';
 
 function Footer() {
   return (
     <footer className="Footer">
-      <FaLinkedinIn />
-      <FaGithub />
-      <a
-        href="https://www.linkedin.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaLinkedinIn />
-      </a>
-      <a
-        href="https://github.com/JulianNavi"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FaGithub />
-      </a>
+      {data.map(({ href, icon }) => (
+        <IconLink href={href} target="_blank" icon={icon} />
+      ))}
     </footer>
   );
 }

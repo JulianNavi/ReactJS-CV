@@ -2,6 +2,7 @@
   max-width: 960px;
   margin: 0 auto;
 }
+
 .Header {
   margin: 40px 0;
   position: relative;
@@ -35,6 +36,7 @@
     margin-top: 20px;
   }
 }
+
 main {
   .Section {
     display: flex;
@@ -97,6 +99,22 @@ main {
           font-weight: 700;
         }
       }
+    }
+  }
+}
+
+.Footer {
+  display: flex;
+  justify-content: center;
+  background: #7a031e;
+  svg {
+    padding: 10px;
+    color: #fff;
+    font-size: 24px;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: rgb(47, 102, 144);
     }
   }
 }

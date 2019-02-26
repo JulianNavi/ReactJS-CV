@@ -9,6 +9,10 @@ function App() {
       <div className="App">
         <Header />
         <Main />
+        <select className="App--language-select">
+          <option>EN</option>
+          <option>GE</option>
+        </select>
       </div>
       <Footer />
     </React.Fragment>

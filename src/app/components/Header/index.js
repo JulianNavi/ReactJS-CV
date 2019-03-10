@@ -4,41 +4,104 @@ import data from './data';
 
 import './index.scss';
 
-function Header(props) {
-  const { language, onLanguage } = props;
-  const { contacts, summary } = data[language];
-  return (
-    <header className="Header">
-      <h1>{data[language].name}</h1>
-      <hr />
-      <p className="Header--contact">
-        {contacts.phone.label}: {contacts.phone.value}
-      </p>
-      <p className="Header--contact">
-        {contacts.email.label}:{' '}
-        <a
-          href="mailto:daleCooper@twinpeaks.com"
-          target="_blank"
-          rel="noopener noreferrer"
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentWillMount() {
+    console.log('Will Mount');
+  }
+
+  componentDidMount() {
+    console.log('Did Mount');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('Will receive, this.props', this.props);
+    console.log('Will receive, next', nextProps);
+  }
+
+  // shouldComponentUpdate(nextProps) {
+  //   console.log('shouldComponentUpdate next', nextProps);
+  //   if (nextProps.language === 'kr') {
+  //     return false;
+  //   }
+
+  //   return true;
+  // }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('Will Update', nextProps, nextState);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('getDerivedStateFromProps', props, state);
+
+    return { animate: 'in' };
+  }
+
+  componentDidUpdate(props, state, snapshot) {
+    console.log('componentDidUpdate', props, state, snapshot);
+  }
+
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+    clearInterval(this.interval);
+  }
+
+  getSnapshotBeforeUpdate(prevrops, prevState) {
+    console.log('getSnapshotBeforeUpdate nextProps', prevrops);
+    console.log('getSnapshotBeforeUpdate nextState', prevState);
+
+    return 'Labas';
+  }
+
+  render() {
+    // throw Error('You can not see Header');
+    console.log('Render');
+
+    const { count } = this.state;
+    const { language, onLanguage } = this.props;
+    const { contacts, picture, name, summary } = data[language];
+
+    return (
+      <header className="Header">
+        <h1>
+          {name}
+          {count}
+        </h1>
+        <hr />
+        <p className="Header--contact">
+          {`${contacts.phone.label} ${contacts.phone.value}`}
+        </p>
+        <p className="Header--contact">
+          {`${contacts.email.label} `}
+          <a
+            href={`mailto:${contacts.email.value}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {contacts.email.value}
+          </a>
+        </p>
+        <p className="Header--summary">{summary}</p>
+        <img
+          className="Header--profile-picture"
+          alt={picture.alt}
+          src={picture.src}
+        />
+        <select
+          value={language}
+          onChange={e => onLanguage(e.target.value)}
+          className="Header--language-select"
         >
-          {contacts.email.value}
-        </a>
-      </p>
-      <p className="Header--summary">{summary}</p>
-      <img
-        className="Header--profile-picture"
-        src={data[language].picture.src}
-        alt={data[language].picture.alt}
-      />
-      <select
-        onChange={e => onLanguage(e.target.value)}
-        className="Header--language-select"
-      >
-        <option value="en">EN</option>
-        <option value="ge">GE</option>
-      </select>
-    </header>
-  );
+          <option value="en">English</option>
+          <option value="ge">German</option>
+        </select>
+      </header>
+    );
+  }
 }
 
 Header.propTypes = {
